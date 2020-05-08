@@ -60,3 +60,29 @@ html, body {
   width: 50vw;
   justify-content: space-evenly;
 }
+
+@media (orientation: portrait) {
+  html, body {
+    flex-direction: column;
+  }
+
+  .canvasContainer {
+    width: 100vw;
+    height: 50vh;
+  }
+  
+  
+  #webcam,
+  .faceCanvas {
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  #toolbox {
+    width: 100vw;
+  }
+}

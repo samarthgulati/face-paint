@@ -213,6 +213,7 @@ class DrawingCanvas {
     this._canvas.width = w;
     this._canvas.height = h;
     var rect = this._canvas.getBoundingClientRect();
+    var containerRect = this._canvas.parentElement.getBoundingClientRect();
     this._transform = {
       scaleX: w / rect.width,
       scaleY: h / rect.height,
@@ -221,13 +222,13 @@ class DrawingCanvas {
     };
     // adjustment for object-fit contain
     // if wider than taller then padding on left and right
-    if(window.innerWidth * 0.5 > window.innerHeight) {
-      this._transform.left += (window.innerWidth * 0.5 - window.innerHeight) * 0.5;
+    if(containerRect.width > containerRect.height) {
+      this._transform.left += (containerRect.width - containerRect.height) * 0.5;
     } 
     // if taller than wider then padding on top and bottom
-    else if(window.innerWidth * 0.5 < window.innerHeight) {
-      this._transform.top += (window.innerHeight - window.innerWidth * 0.5) * 0.5;
-    }
+    else if(containerRect.width < containerRect.height) {
+      this._transform.top += (containerRect.height - containerRect.width) * 0.5;
+    } 
     this._ctx = this._canvas.getContext('2d');
     this._pointerDown = false;
     this._strokes = [];
