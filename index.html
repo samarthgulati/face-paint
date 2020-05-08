@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="/manifest.json">
+  <title>Face Paint</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+</head>
+<body>
+  <section class="canvasContainer">
+    <video muted id="webcam"></video>
+    <canvas class="faceCanvas" id="mera"></canvas>
+  </section>
+  <section class="canvasContainer" id="paintContainer">
+    <canvas id="paint"></canvas>
+    <img class="facemesh"  src="assets/mesh_map_texture.png" alt="facemesh">
+    <nav id="toolbox">
+      <input type="color" id="color"/>
+      <input type="button" id="undo" value="undo"/>
+      <input type="button" id="clear" value="clear"/>
+      <span>
+        size
+        <input type="number" min="5" max="100" value="40" id="size"/>
+      </span>
+    </nav>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+  <!-- <script src="lib/tf-js-core.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+  <!-- <script src="lib/tf-js-converter.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh"></script>
+  <!-- <script src="lib/tf-js-facemesh.js"></script> -->
+  <!-- <script src="js/indexToTextureCoords.js"></script> -->
+  <script src="js/orthoTextureMap.js"></script>
+  <script src="lib/triangulation.js"></script>
+  <script src="js/webgl-utils.js"></script>
+  <script src="js/FacemeshMap.js"></script>
+  <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+  <!-- <script src="lib/pep.js"></script> -->
+  <script src="js/DrawingCanvas.js"></script>
+  <script src="js/canvasTools.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
