@@ -83,6 +83,10 @@ html, body {
   }
   
   #toolbox {
+    z-index: 100;
+    position: absolute;
+    top: 1rem;
+    display: flex;
     width: 100vw;
   }
 }
